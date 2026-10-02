@@ -43,6 +43,7 @@ Comunicar la red de usuarios con un servidor web remoto mediante una VPN Site-to
 - [R1 / ISP](running-configs/R1-ISP_running-config.txt)
 - [R2-CISCO](running-configs/R2-CISCO_running-config_SANITIZADO.txt)
 - [SW-USERS](running-configs/SW-USERS_running-config.txt)
+- [FortiGate - Backup completo sanitizado](running-configs/FortiGate_BACKUP_COMPLETO_SANITIZADO.conf)
 - [USER-PC / DHCP](running-configs/USER-PC_DHCP_info.txt)
 - [WEB-SRV](running-configs/WEB-SRV_config.txt)
 
