@@ -1,0 +1,3 @@
+WEB-SRV-1 - instalación de software
+
+Para instalar Nginx y OpenSSL se conectó temporalmente el servidor al nodo NAT de GNS3. Después de completar la instalación, el servidor volvió a conectarse a R2-CISCO y recuperó su dirección estática 10.15.72.130/28 con gateway 10.15.72.129.
