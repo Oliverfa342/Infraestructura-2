@@ -1,0 +1,6 @@
+Infraestructura 2 - USER-PC-1
+
+Asignación por DHCP desde VLAN10-USERS.
+Dirección observada: 10.15.72.2/25
+Gateway: 10.15.72.1
+DNS: 8.8.8.8
