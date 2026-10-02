@@ -1,0 +1,47 @@
+hostname R2-CISCO
+no ip domain-lookup
+ip cef
+no ipv6 cef
+!
+crypto isakmp policy 10
+ encr des
+ hash sha
+ authentication pre-share
+ group 14
+ lifetime 86400
+crypto isakmp key <REDACTED> address 203.0.113.161
+!
+crypto ipsec transform-set TS-VPN-DES esp-des esp-sha-hmac
+ mode tunnel
+!
+crypto map VPN-MAP 10 ipsec-isakmp
+ set peer 203.0.113.161
+ set transform-set TS-VPN-DES
+ match address VPN-TRAFFIC
+!
+interface FastEthernet0/0
+ description WAN-HACIA-ISP
+ ip address 198.51.100.162 255.255.255.252
+ ip nat outside
+ duplex full
+ crypto map VPN-MAP
+!
+interface FastEthernet1/0
+ description LAN-WEB-SERVER
+ ip address 10.15.72.129 255.255.255.240
+ ip nat inside
+!
+ip nat inside source route-map NAT-RM interface FastEthernet0/0 overload
+ip route 0.0.0.0 0.0.0.0 198.51.100.161
+!
+ip access-list extended NAT-ACL
+ deny ip 10.15.72.128 0.0.0.15 10.15.72.0 0.0.0.127
+ permit ip 10.15.72.128 0.0.0.15 any
+!
+ip access-list extended VPN-TRAFFIC
+ permit ip 10.15.72.128 0.0.0.15 10.15.72.0 0.0.0.127
+!
+route-map NAT-RM permit 10
+ match ip address NAT-ACL
+!
+end

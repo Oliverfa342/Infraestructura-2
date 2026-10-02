@@ -1,0 +1,21 @@
+hostname SW-USERS
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan 10
+ name USERS
+!
+interface GigabitEthernet0/0
+ description USER-PC
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/1
+ description TRUNK-HACIA-FORTIGATE
+ switchport trunk allowed vlan 10
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+end
