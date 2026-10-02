@@ -1,0 +1,27 @@
+INFRAESTRUCTURA 2 - COMANDOS DE VERIFICACION Y DEMOSTRACION
+
+USER-PC-1
+- Verificar direccion IP y ruta.
+- Probar ping hacia 10.15.72.130.
+- Probar HTTPS hacia 10.15.72.130.
+- Ejecutar traceroute hacia 10.15.72.130.
+
+WEB-SRV-1
+- Verificar direccion IP y gateway.
+- Verificar servicio HTTPS TCP/443.
+- Probar conectividad hacia la Loopback del ISP 192.0.2.158.
+
+R2-CISCO
+- show ip interface brief
+- show crypto isakmp policy
+- show crypto isakmp sa
+- show crypto ipsec sa
+- show ip nat translations
+- show ip nat statistics
+
+DEMOSTRACION VPN
+- Con VPN activa, USER-PC alcanza WEB-SRV.
+- Se deshabilita temporalmente el crypto map en FastEthernet0/0 de R2.
+- El ping a 10.15.72.130 falla con 100% packet loss.
+- Se vuelve a aplicar el crypto map.
+- La comunicacion se restablece.
